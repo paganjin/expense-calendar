@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import ExpenseList from './components/ExpenseList';
 import ExpenseFilter from './components/ExpenseFilter';
+import ExpenseChart from './components/ExpenseChart';
 import Card from '../UI/Card';
 import './Expense.css';
 
@@ -18,10 +19,11 @@ function Expense(props) {
   return (
     <div>
       <Card className='expenses'>
-        <ExpenseFilter 
+        <ExpenseFilter
           selected={selectedYear}
           onSaveFilterData={saveFilterDataHandler}
         />
+        <ExpenseChart expenses={filteredExpenses} />
         <ExpenseList item={filteredExpenses} />
       </Card>
     </div>
